@@ -10,7 +10,7 @@ let imagenNave;
 let enemigos = [];
 let numeroEnemigos = 0;
 let columnasEnemigos = 2;
-let filasEnemigos = 3;
+let filasEnemigos = 15;
 
 
 window.onload = function(){
@@ -83,10 +83,13 @@ function actualizar(){
     for(let i = 0;i<numeroEnemigos;i++){
         let enemigoDibujo = enemigos[i];
         if(enemigoDibujo.vivo){
-            canvas.drawImage(enemigoImagen,enemigoDibujo.posicionX,enemigoDibujo.posicionY,enemigoDibujo.ancho,enemigoDibujo.alto);
+            
+            canvas.drawImage(enemigoDibujo.imagen,enemigoDibujo.posicionX,enemigoDibujo.posicionY,enemigoDibujo.ancho,enemigoDibujo.alto);
         }
     }
 
+    
+    moverEnemigos();
     requestAnimationFrame(actualizar);
 
 }
@@ -114,6 +117,21 @@ function moverNave(event){
     
 }
 
+function moverEnemigos(){
+
+        for(let i = 0;i < numeroEnemigos; i++){
+            enemigoAMover = enemigos[i]
+
+            if(enemigoAMover.posicionX + enemigoAMover.ancho > pantallaAncho || enemigoAMover.posicionX < 0){
+                enemigoAMover.velocidad = enemigoAMover.velocidad * -1;
+            }
+
+            enemigoAMover.posicionX += enemigoAMover.velocidad;
+        }
+
+
+}
+
 function verificarBordeIzquierda(nave){
 
     return(nave.posicionX > 0)
@@ -133,11 +151,13 @@ function crearEnemigos(){
         for(let j = 0;j<columnasEnemigos;j++){
             let enemigo = {
                 imagen: enemigoImagen,
-                posicionX: pantallaAncho / 2 + i*60 - 50,
+                posicionX: pantallaAncho / 2 + i*60 - 450,
                 posicionY: 50 + j * 60 ,
                 ancho: 50 ,
                 alto: 50,
-                vivo: true
+                vivo: true,
+                velocidad: 1,
+
 
             }
 
