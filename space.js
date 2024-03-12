@@ -12,6 +12,10 @@ let numeroEnemigos = 0;
 let columnasEnemigos = 2;
 let filasEnemigos = 15;
 
+let balas1 = [];
+let balas2 = [];
+
+
 
 window.onload = function(){
     pantalla = document.getElementById("pantalla");
@@ -40,6 +44,7 @@ window.onload = function(){
     
     requestAnimationFrame(actualizar);
     document.addEventListener("keyup",moverNave);
+    document.addEventListener("keyup",disparar);
 
     
 
@@ -80,6 +85,8 @@ function actualizar(){
     canvas.drawImage(imagenNave2,nave2.posicionX,nave2.posicionY,nave2.ancho,nave2.alto);
 
 
+
+
     for(let i = 0;i<numeroEnemigos;i++){
         let enemigoDibujo = enemigos[i];
         if(enemigoDibujo.vivo){
@@ -88,11 +95,31 @@ function actualizar(){
         }
     }
 
+   
+
+   for(let i = 0;i<balas2.length;i++){
+        let balaD = balas2[i];
+        balaD.posicionY += balaD.velocidad;
+        canvas.fillStyle = "red"
+        canvas.fillRect(balaD.posicionX,balaD.posicionY,balaD.ancho,balaD.alto);
+
+    }
+
+    for(let i = 0;i<balas1.length;i++){
+        let A = balas1[i];
+        balaA.posicionY += balaA.velocidad;
+        canvas.fillStyle = "blue"
+        canvas.fillRect(balaA.posicionX,balaA.posicionY,balaA.ancho,balaA.alto);
+
+    }
+
     
     moverEnemigos();
     requestAnimationFrame(actualizar);
 
 }
+
+
 
 function moverNave(event){
 
@@ -148,6 +175,38 @@ function verificarBordeIzquierda(nave){
 function verificarBordeDerecha(nave){
 
     return(nave.posicionX + nave.ancho < pantallaAncho)
+}
+
+function disparar(evento){
+
+    if(evento.code == "Space"){
+        let bala = {
+            posicionX: nave2.posicionX + nave2.ancho/2 - 15,
+            posicionY: nave2.posicionY + 10,
+            ancho: 2,
+            alto: 20,
+            usada: false,
+            velocidad: -4
+
+        }
+        balas2.push(bala);
+    }
+
+    if(evento.code == "ShiftRight"){
+        let bala = {
+            posicionX: nave1.posicionX + nave1.ancho/2 - 15,
+            posicionY: nave1.posicionY + 10,
+            ancho: 2,
+            alto: 20,
+            usada: false,
+            velocidad: -4
+
+        }
+        balas1.push(bala);
+    } 
+
+
+
 }
 
 function crearEnemigos(){
