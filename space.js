@@ -106,7 +106,7 @@ function actualizar(){
     }
 
     for(let i = 0;i<balas1.length;i++){
-        let A = balas1[i];
+        let balaA = balas1[i];
         balaA.posicionY += balaA.velocidad;
         canvas.fillStyle = "blue"
         canvas.fillRect(balaA.posicionX,balaA.posicionY,balaA.ancho,balaA.alto);
