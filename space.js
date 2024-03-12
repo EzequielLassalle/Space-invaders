@@ -123,10 +123,15 @@ function moverEnemigos(){
             enemigoAMover = enemigos[i]
 
             if(enemigoAMover.posicionX + enemigoAMover.ancho > pantallaAncho || enemigoAMover.posicionX < 0){
-                enemigoAMover.velocidad = enemigoAMover.velocidad * -1;
+                
+                enemigoAMover.velocidadX = enemigoAMover.velocidadX * -1;
+                enemigoAMover.posicionY += enemigoAMover.alto *2 + 15;
+                
             }
 
-            enemigoAMover.posicionX += enemigoAMover.velocidad;
+            enemigoAMover.posicionX += enemigoAMover.velocidadX;
+            ///enemigoAMover.posicionY +=  enemigoAMover.velocidadY;
+
         }
 
 
@@ -156,7 +161,8 @@ function crearEnemigos(){
                 ancho: 50 ,
                 alto: 50,
                 vivo: true,
-                velocidad: 1,
+                velocidadX: 1,
+                velocidadY: 1/4
 
 
             }
