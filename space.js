@@ -146,18 +146,26 @@ function moverNave(event){
 
 function moverEnemigos(){
 
+    let enemigoAMover;
+
         for(let i = 0;i < numeroEnemigos; i++){
             enemigoAMover = enemigos[i]
 
             if(enemigoAMover.posicionX + enemigoAMover.ancho > pantallaAncho || enemigoAMover.posicionX < 0){
-                
-                enemigoAMover.velocidadX = enemigoAMover.velocidadX * -1;
-                enemigoAMover.posicionY += enemigoAMover.alto *2 + 15;
-                
+
+                for(let j = 0; j < numeroEnemigos;j++){
+                    enemigoACambiar = enemigos[j]
+                    enemigoACambiar.velocidadX = enemigoACambiar.velocidadX * -1;
+                    enemigoACambiar.posicionY += enemigoAMover.alto;
+                    enemigoACambiar.posicionX += enemigoACambiar.velocidadX;
+
+                }
+
+                return;
             }
 
             enemigoAMover.posicionX += enemigoAMover.velocidadX;
-            ///enemigoAMover.posicionY +=  enemigoAMover.velocidadY;
+            
 
         }
 
@@ -183,7 +191,7 @@ function disparar(evento){
         let bala = {
             posicionX: nave2.posicionX + nave2.ancho/2 - 15,
             posicionY: nave2.posicionY + 10,
-            ancho: 2,
+            ancho: 3,
             alto: 20,
             usada: false,
             velocidad: -4
@@ -196,7 +204,7 @@ function disparar(evento){
         let bala = {
             posicionX: nave1.posicionX + nave1.ancho/2 - 15,
             posicionY: nave1.posicionY + 10,
-            ancho: 2,
+            ancho: 3,
             alto: 20,
             usada: false,
             velocidad: -4
