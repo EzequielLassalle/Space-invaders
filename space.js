@@ -60,7 +60,7 @@ window.onload = function(){
     enemigoImagen7.src = "./squid.png";
 
     enemigoImagen8 = new Image();
-    enemigoImagen8.src = "./squid.png";
+    enemigoImagen8.src = "./mistery2.jpg";
     
     requestAnimationFrame(actualizar);
     document.addEventListener("keyup",moverNave);
@@ -212,26 +212,29 @@ function seleccionarNivel(nivel){
         case 7:
             filasEnemigos = 1;
             columnasEnemigos = 1;
-            crearEnemigos(enemigoImagen6,2,100)
+            crearEnemigos(enemigoImagen6,2,10)
             break;
 
         case 8:
-            filasEnemigos = 4;
-            columnasEnemigos = 1;
-            crearEnemigos(enemigoImagen1,2,2)
-            crearEnemigos(enemigoImagen2,4,4)
-            crearEnemigos(enemmigoImagen5,5,5)
+            filasEnemigos = 10;
+            columnasEnemigos = 2;
+            crearEnemigos(enemigoImagen7,4,10)
             break;
 
 
         case 9:
             filasEnemigos = 10;
             columnasEnemigos = 3;
-            crearEnemigos(enemigoImagen7,3,15)
+            crearEnemigos(enemigoImagen8,3,12)
+            columnasEnemigos = 1;
+            crearEnemigos(enemigoImagen7,3,10)
             break;
 
 
         case 10:
+            filasEnemigos = 1;
+            columnasEnemigos = 1;
+            crearEnemigos(enemigoImagen8,3,150)
 
 
 
@@ -339,7 +342,7 @@ function disparar(evento){
 
     if(evento.code == "Space"){
         let bala = {
-            posicionX: nave2.posicionX + nave2.ancho/2 - 15,
+            posicionX: nave2.posicionX + nave2.ancho/2 - 3,
             posicionY: nave2.posicionY + 10,
             ancho: 3,
             alto: 15,
@@ -352,7 +355,7 @@ function disparar(evento){
 
     if(evento.code == "ShiftRight"){
         let bala = {
-            posicionX: nave1.posicionX + nave1.ancho/2 - 15,
+            posicionX: nave1.posicionX + nave1.ancho/2 - 3,
             posicionY: nave1.posicionY + 10,
             ancho: 3,
             alto: 15,
