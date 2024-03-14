@@ -42,7 +42,7 @@ window.onload = function(){
 
     enemigoImagen = new Image();
     enemigoImagen.src = "./alien1.png";
-    crearEnemigos(enemigoImagen,2);
+    crearEnemigos(enemigoImagen,2,2);
 
     enemigoImagen2 = new Image();
     enemigoImagen2.src = "./alien2.png";
@@ -163,38 +163,38 @@ function seleccionarNivel(nivel){
 
             filasEnemigos = filasEnemigos + 3;
             columnasEnemigos = columnasEnemigos + 1;
-            crearEnemigos(enemigoImagen,2)
+            crearEnemigos(enemigoImagen,2,2)
             break;
 
         case 2:
 
             filasEnemigos = filasEnemigos + 3;
             columnasEnemigos = columnasEnemigos + 1;
-            crearEnemigos(enemigoImagen,2)
+            crearEnemigos(enemigoImagen,2,2)
             break;
 
         case 3:
 
             filasEnemigos = filasEnemigos + 1;
-            crearEnemigos(enemigoImagen,2)
+            crearEnemigos(enemigoImagen,2,2)
             filasEnemigos = 10
             columnasEnemigos = 1
-            crearEnemigos(enemigoImagen2,2)
+            crearEnemigos(enemigoImagen2,2,4)
             break;
 
         case 4:
 
-            filasEnemigos = 5
-            columnasEnemigos = 7
-            crearEnemigos(enemigoImagen2,3);
+            filasEnemigos = 7
+            columnasEnemigos = 5
+            crearEnemigos(enemigoImagen2,3,4);
             break;
             
 
         case 5:
 
-            filasEnemigos = 2
-            columnasEnemigos = 6
-            crearEnemigos(enemigoImagen3,5)
+            filasEnemigos = 6
+            columnasEnemigos = 2
+            crearEnemigos(enemigoImagen3,10,5)
             break;
 
 
@@ -226,13 +226,17 @@ function verificarAtaque(bala){
         
         if(detectarColisiones(bala,enemigoS) && enemigoS.vivo && !bala.usada){
             bala.usada = true;
-            enemigoS.vivo = false;
-            numeroEnemigos--;
-
-            enemigos.splice(j, 1);
+            enemigoS.vida = enemigoS.vida - 1;
             
-           
-            j--;
+
+            if(enemigoS.vida <=0){
+                numeroEnemigos = numeroEnemigos -1;
+                enemigoS.vivo = false;
+                enemigos.splice(j, 1);
+            
+                j--;
+            }
+
             
             
         }
@@ -315,9 +319,9 @@ function disparar(evento){
             posicionX: nave2.posicionX + nave2.ancho/2 - 15,
             posicionY: nave2.posicionY + 10,
             ancho: 3,
-            alto: 20,
+            alto: 15,
             usada: false,
-            velocidad: -3
+            velocidad: -10
 
         }
         balas2.push(bala);
@@ -328,9 +332,9 @@ function disparar(evento){
             posicionX: nave1.posicionX + nave1.ancho/2 - 15,
             posicionY: nave1.posicionY + 10,
             ancho: 3,
-            alto: 20,
+            alto: 15,
             usada: false,
-            velocidad: -4
+            velocidad: -10
 
         }
         balas1.push(bala);
@@ -340,7 +344,7 @@ function disparar(evento){
 
 }
 
-function crearEnemigos(imagen,velocidad){
+function crearEnemigos(imagen,velocidad,numeroVida){
 
     for(let i = 0;i<filasEnemigos;i++){
         for(let j = 0;j<columnasEnemigos;j++){
@@ -352,7 +356,8 @@ function crearEnemigos(imagen,velocidad){
                 alto: 50,
                 vivo: true,
                 velocidadX: velocidad,
-                velocidadY: 1/4
+                velocidadY: 1/4,
+                vida: numeroVida
 
 
             }
