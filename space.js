@@ -83,7 +83,7 @@ function actualizar(){
 
 
 
-    for(let i = 0;i<numeroEnemigos;i++){
+    for(let i = 0;i<enemigos.length;i++){
         let enemigoDibujo = enemigos[i];
         if(enemigoDibujo.vivo){
             
@@ -128,18 +128,27 @@ function actualizar(){
 
 }
 
+
 function verificarAtaque(bala){
 
     for(let j = 0;j<numeroEnemigos;j++){
-        let enemigo = enemigos[j]
-        if(detectarColisiones(bala,enemigo) && enemigo.vivo && !bala.usada){
+        let enemigoS = enemigos[j]
+        
+        if(detectarColisiones(bala,enemigoS) && enemigoS.vivo && !bala.usada){
             bala.usada = true;
-            enemigo.vivo = false;
+            enemigoS.vivo = false;
             numeroEnemigos--;
-            break;
-        }
-    }
 
+            enemigos.splice(j, 1);
+            
+           
+            j--;
+            
+            
+        }
+
+
+}
 
 }
 
@@ -247,8 +256,8 @@ function crearEnemigos(){
         for(let j = 0;j<columnasEnemigos;j++){
             let enemigo = {
                 imagen: enemigoImagen,
-                posicionX: pantallaAncho / 2 + i*50 - 450,
-                posicionY: 50 + j * 60 ,
+                posicionX: pantallaAncho / 2 + i*100 - 450,
+                posicionY: 50 + j * 100 ,
                 ancho: 50 ,
                 alto: 50,
                 vivo: true,
