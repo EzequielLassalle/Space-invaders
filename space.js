@@ -160,10 +160,13 @@ function seleccionarNivel(nivel){
 
     switch(nivel){
         case 1:
-            filasEnemigos = filasEnemigos + 2;
-            columnasEnemigos = columnasEnemigos + 2;
+            filasEnemigos = filasEnemigos + 3;
+            columnasEnemigos = columnasEnemigos + 1;
             crearEnemigos()
         case 2:
+            filasEnemigos = filasEnemigos + 3;
+            columnasEnemigos = columnasEnemigos + 1;
+            crearEnemigos()
 
         case 3:
 
