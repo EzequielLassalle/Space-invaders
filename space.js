@@ -61,6 +61,9 @@ window.onload = function(){
 
     enemigoImagen8 = new Image();
     enemigoImagen8.src = "./mistery2.jpg";
+
+    enemigoImagen9 = new Image();
+    enemigoImagen9.src = "./boss.PNG";
     
     requestAnimationFrame(actualizar);
     document.addEventListener("keyup",moverNave);
@@ -212,29 +215,29 @@ function seleccionarNivel(nivel){
         case 7:
             filasEnemigos = 1;
             columnasEnemigos = 1;
-            crearEnemigos(enemigoImagen6,2,10)
+            crearEnemigos(enemigoImagen6,2,100)
             break;
 
         case 8:
             filasEnemigos = 10;
             columnasEnemigos = 2;
-            crearEnemigos(enemigoImagen7,4,10)
+            crearEnemigos(enemigoImagen7,4,8)
             break;
 
 
         case 9:
             filasEnemigos = 10;
             columnasEnemigos = 3;
-            crearEnemigos(enemigoImagen8,3,12)
+            crearEnemigos(enemigoImagen8,3,8)
             columnasEnemigos = 1;
-            crearEnemigos(enemigoImagen7,3,10)
+            crearEnemigos(enemigoImagen7,3,8)
             break;
 
 
         case 10:
             filasEnemigos = 1;
             columnasEnemigos = 1;
-            crearEnemigos(enemigoImagen8,3,150)
+            crearEnemigos(enemigoImagen9,3,200)
 
 
 
@@ -378,7 +381,7 @@ function crearEnemigos(imagen,velocidad,numeroVida){
                 imagen: imagen,
                 posicionX: pantallaAncho / 2 + i*75 - 450,
                 posicionY: 50 + j * 60 ,
-                ancho: 50 ,
+                ancho: 70 ,
                 alto: 50,
                 vivo: true,
                 velocidadX: velocidad,
