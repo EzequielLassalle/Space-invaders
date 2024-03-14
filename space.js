@@ -206,8 +206,8 @@ function seleccionarNivel(nivel){
 
         case 6:
             filasEnemigos = 12
-            columnasEnemigos = 3
-            crearEnemigos(enemigoImagen5,5,4)
+            columnasEnemigos = 2
+            crearEnemigos(enemigoImagen5,5,3)
             break;
 
 
@@ -219,24 +219,101 @@ function seleccionarNivel(nivel){
             break;
 
         case 8:
-            filasEnemigos = 14;
+            filasEnemigos = 10;
             columnasEnemigos = 1;
-            crearEnemigos(enemigoImagen7,4,20)
+            crearEnemigos(enemigoImagen7,4,15)
             break;
 
 
         case 9:
+
             filasEnemigos = 12;
             columnasEnemigos = 3;
-            crearEnemigos(enemigoImagen8,3,7)
+            crearEnemigos(enemigoImagen8,3,6)
             columnasEnemigos = 1;
-            crearEnemigos(enemigoImagen7,3,7)
+            crearEnemigos(enemigoImagen7,3,6)
+            break;
+
+        
+        case 10:
+
+            filasEnemigos = 2
+            columnasEnemigos = 2
+            crearEnemigos(enemigoImagen6,2,40)
+            break;
+
+        case 11:
+
+            filasEnemigos = 4
+            columnasEnemigos = 3
+            crearEnemigos(enemigoImagen6,3,40)
+            break;
+
+        case 12:
+
+            filasEnemigos = 10
+            columnasEnemigos = 4
+            crearEnemigos(enemigoImagen2,3,5)
+
+            filasEnemigos = 2
+            columnasEnemigos = 2
+            crearEnemigos(enemigoImagen6,1,70)
+            break;
+
+        case 13:
+
+            filasEnemigos = 10
+            columnasEnemigos = 1
+            crearEnemigos(enemigoImagen3,4,4)
+            break;
+
+        case 14:
+
+            filasEnemigos = 10
+            columnasEnemigos = 3
+            crearEnemigos(enemigoImagen7,3,3)
+            break;
+
+        case 15:
+
+            filasEnemigos = 3
+            columnasEnemigos = 3
+            crearEnemigos(enemigoImagen8,3,5)
+            break;
+
+        case 16:
+
+            filasEnemigos = 10
+            columnasEnemigos = 6
+            crearEnemigos(enemigoImagen3,3,2)
+            break; 
+
+        case 17:
+
+            filasEnemigos = 5
+            columnasEnemigos = 3
+            crearEnemigos(enemigoImagen5,2,4)
+            break;
+
+        case 18:
+
+            filasEnemigos = 3
+            columnasEnemigos = 2
+            crearEnemigos(enemigoImagen8,2,20)
+            break;
+
+        case 19:
+
+            filasEnemigos = 10
+            columnasEnemigos = 2
+            crearEnemigos(enemigoImagen7,4,10)
             break;
 
 
-        case 10:
+        case 20:
 
             crearBoss();
+            break;
 
 
 
