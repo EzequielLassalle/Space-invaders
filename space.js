@@ -17,6 +17,8 @@ let nivel = 0;
 let balas1 = [];
 let balas2 = [];
 
+let puntaje = 0;
+
 
 
 window.onload = function(){
@@ -103,7 +105,9 @@ function actualizar(){
     canvas.drawImage(imagenNave1,nave1.posicionX,nave1.posicionY,nave1.ancho,nave1.alto);
     canvas.drawImage(imagenNave2,nave2.posicionX,nave2.posicionY,nave2.ancho,nave2.alto);
 
-
+    canvas.fillStyle = "blue"
+    canvas.font = "30px sans-serif";
+    canvas.fillText(puntaje,10,30);
 
 
     for(let i = 0;i<enemigos.length;i++){
@@ -221,7 +225,7 @@ function seleccionarNivel(nivel){
         case 8:
             filasEnemigos = 10;
             columnasEnemigos = 1;
-            crearEnemigos(enemigoImagen7,4,15)
+            crearEnemigos(enemigoImagen7,4,13)
             break;
 
 
@@ -229,9 +233,9 @@ function seleccionarNivel(nivel){
 
             filasEnemigos = 12;
             columnasEnemigos = 3;
-            crearEnemigos(enemigoImagen8,3,6)
+            crearEnemigos(enemigoImagen8,3,4)
             columnasEnemigos = 1;
-            crearEnemigos(enemigoImagen7,3,6)
+            crearEnemigos(enemigoImagen7,3,4)
             break;
 
         
@@ -358,6 +362,7 @@ function verificarAtaque(bala){
 
             if(enemigoS.vida <=0){
                 numeroEnemigos = numeroEnemigos -1;
+                puntaje = puntaje + 100;
                 enemigoS.vivo = false;
                 enemigos.splice(j, 1);
             
