@@ -42,7 +42,7 @@ window.onload = function(){
 
     enemigoImagen = new Image();
     enemigoImagen.src = "./alien1.png";
-    crearEnemigos();
+    crearEnemigos(enemigoImagen,2);
 
     enemigoImagen2 = new Image();
     enemigoImagen2.src = "./alien2.png";
@@ -160,19 +160,43 @@ function seleccionarNivel(nivel){
 
     switch(nivel){
         case 1:
+
             filasEnemigos = filasEnemigos + 3;
             columnasEnemigos = columnasEnemigos + 1;
-            crearEnemigos()
+            crearEnemigos(enemigoImagen,2)
+            break;
+
         case 2:
+
             filasEnemigos = filasEnemigos + 3;
             columnasEnemigos = columnasEnemigos + 1;
-            crearEnemigos()
+            crearEnemigos(enemigoImagen,2)
+            break;
 
         case 3:
 
+            filasEnemigos = filasEnemigos + 1;
+            crearEnemigos(enemigoImagen,2)
+            filasEnemigos = 10
+            columnasEnemigos = 1
+            crearEnemigos(enemigoImagen2,2)
+            break;
+
         case 4:
 
+            filasEnemigos = 5
+            columnasEnemigos = 7
+            crearEnemigos(enemigoImagen2,3);
+            break;
+            
+
         case 5:
+
+            filasEnemigos = 2
+            columnasEnemigos = 6
+            crearEnemigos(enemigoImagen3,5)
+            break;
+
 
         case 6:
 
@@ -293,7 +317,7 @@ function disparar(evento){
             ancho: 3,
             alto: 20,
             usada: false,
-            velocidad: -4
+            velocidad: -3
 
         }
         balas2.push(bala);
@@ -316,18 +340,18 @@ function disparar(evento){
 
 }
 
-function crearEnemigos(){
+function crearEnemigos(imagen,velocidad){
 
     for(let i = 0;i<filasEnemigos;i++){
         for(let j = 0;j<columnasEnemigos;j++){
             let enemigo = {
-                imagen: enemigoImagen,
+                imagen: imagen,
                 posicionX: pantallaAncho / 2 + i*75 - 450,
                 posicionY: 50 + j * 60 ,
                 ancho: 50 ,
                 alto: 50,
                 vivo: true,
-                velocidadX: 1,
+                velocidadX: velocidad,
                 velocidadY: 1/4
 
 
