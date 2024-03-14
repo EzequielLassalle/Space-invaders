@@ -58,6 +58,9 @@ window.onload = function(){
 
     enemigoImagen7 = new Image();
     enemigoImagen7.src = "./squid.png";
+
+    enemigoImagen8 = new Image();
+    enemigoImagen8.src = "./squid.png";
     
     requestAnimationFrame(actualizar);
     document.addEventListener("keyup",moverNave);
@@ -213,7 +216,7 @@ function seleccionarNivel(nivel){
             break;
 
         case 8:
-            filasEnemigos = 10;
+            filasEnemigos = 4;
             columnasEnemigos = 1;
             crearEnemigos(enemigoImagen1,2,2)
             crearEnemigos(enemigoImagen2,4,4)
@@ -225,6 +228,7 @@ function seleccionarNivel(nivel){
             filasEnemigos = 10;
             columnasEnemigos = 3;
             crearEnemigos(enemigoImagen7,3,15)
+            break;
 
 
         case 10:
