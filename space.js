@@ -12,6 +12,8 @@ let numeroEnemigos = 0;
 let columnasEnemigos = 2;
 let filasEnemigos = 2;
 
+let nivel = 0;
+
 let balas1 = [];
 let balas2 = [];
 
@@ -41,6 +43,21 @@ window.onload = function(){
     enemigoImagen = new Image();
     enemigoImagen.src = "./alien1.png";
     crearEnemigos();
+
+    enemigoImagen2 = new Image();
+    enemigoImagen2.src = "./alien2.png";
+
+    enemigoImagen3 = new Image();
+    enemigoImagen3.src = "./alien3.png";
+
+    enemigoImagen5 = new Image();
+    enemigoImagen5.src = "./alien5.png";
+
+    enemigoImagen6 = new Image();
+    enemigoImagen6.src = "./alien6.png";
+
+    enemigoImagen7 = new Image();
+    enemigoImagen7.src = "./alien7.png";
     
     requestAnimationFrame(actualizar);
     document.addEventListener("keyup",moverNave);
@@ -124,7 +141,53 @@ function actualizar(){
 
     
     moverEnemigos();
+    actualizarNivel();
     requestAnimationFrame(actualizar);
+
+}
+
+function actualizarNivel(){
+
+    if(numeroEnemigos == 0){
+        nivel = nivel +1;
+        seleccionarNivel(nivel)
+    
+    }
+
+}
+
+function seleccionarNivel(nivel){
+
+    switch(nivel){
+        case 1:
+            filasEnemigos = filasEnemigos + 2;
+            columnasEnemigos = columnasEnemigos + 2;
+            crearEnemigos()
+        case 2:
+
+        case 3:
+
+        case 4:
+
+        case 5:
+
+        case 6:
+
+
+        case 7:
+
+        case 8:
+
+        case 9:
+
+
+        case 10:
+
+
+
+    }
+
+
 
 }
 
@@ -256,8 +319,8 @@ function crearEnemigos(){
         for(let j = 0;j<columnasEnemigos;j++){
             let enemigo = {
                 imagen: enemigoImagen,
-                posicionX: pantallaAncho / 2 + i*100 - 450,
-                posicionY: 50 + j * 100 ,
+                posicionX: pantallaAncho / 2 + i*75 - 450,
+                posicionY: 50 + j * 60 ,
                 ancho: 50 ,
                 alto: 50,
                 vivo: true,
