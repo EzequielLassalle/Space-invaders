@@ -51,13 +51,13 @@ window.onload = function(){
     enemigoImagen3.src = "./alien3.png";
 
     enemigoImagen5 = new Image();
-    enemigoImagen5.src = "./alien5.png";
+    enemigoImagen5.src = "./alien10.png";
 
     enemigoImagen6 = new Image();
-    enemigoImagen6.src = "./alien6.png";
+    enemigoImagen6.src = "./mystery.png";
 
     enemigoImagen7 = new Image();
-    enemigoImagen7.src = "./alien7.png";
+    enemigoImagen7.src = "./squid.png";
     
     requestAnimationFrame(actualizar);
     document.addEventListener("keyup",moverNave);
@@ -199,13 +199,32 @@ function seleccionarNivel(nivel){
 
 
         case 6:
+            filasEnemigos = 8
+            columnasEnemigos = 4
+            crearEnemigos(enemigoImagen5,5,5)
+            break;
+
 
 
         case 7:
+            filasEnemigos = 1;
+            columnasEnemigos = 1;
+            crearEnemigos(enemigoImagen6,2,100)
+            break;
 
         case 8:
+            filasEnemigos = 10;
+            columnasEnemigos = 1;
+            crearEnemigos(enemigoImagen1,2,2)
+            crearEnemigos(enemigoImagen2,4,4)
+            crearEnemigos(enemmigoImagen5,5,5)
+            break;
+
 
         case 9:
+            filasEnemigos = 10;
+            columnasEnemigos = 3;
+            crearEnemigos(enemigoImagen7,3,15)
 
 
         case 10:
