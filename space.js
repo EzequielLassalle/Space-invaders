@@ -169,29 +169,29 @@ function seleccionarNivel(nivel){
 
             filasEnemigos = filasEnemigos + 3;
             columnasEnemigos = columnasEnemigos + 1;
-            crearEnemigos(enemigoImagen,2,2)
+            crearEnemigos(enemigoImagen,3,3)
             break;
 
         case 2:
 
             filasEnemigos = filasEnemigos + 3;
             columnasEnemigos = columnasEnemigos + 1;
-            crearEnemigos(enemigoImagen,2,2)
+            crearEnemigos(enemigoImagen,4,3)
             break;
 
         case 3:
 
             filasEnemigos = filasEnemigos + 1;
-            crearEnemigos(enemigoImagen,2,2)
+            crearEnemigos(enemigoImagen,5,2)
             filasEnemigos = 10
             columnasEnemigos = 1
-            crearEnemigos(enemigoImagen2,2,4)
+            crearEnemigos(enemigoImagen2,5,3)
             break;
 
         case 4:
 
-            filasEnemigos = 7
-            columnasEnemigos = 5
+            filasEnemigos = 10
+            columnasEnemigos = 4
             crearEnemigos(enemigoImagen2,3,4);
             break;
             
@@ -200,14 +200,14 @@ function seleccionarNivel(nivel){
 
             filasEnemigos = 6
             columnasEnemigos = 2
-            crearEnemigos(enemigoImagen3,10,5)
+            crearEnemigos(enemigoImagen3,12,3)
             break;
 
 
         case 6:
-            filasEnemigos = 8
-            columnasEnemigos = 4
-            crearEnemigos(enemigoImagen5,5,5)
+            filasEnemigos = 12
+            columnasEnemigos = 3
+            crearEnemigos(enemigoImagen5,5,4)
             break;
 
 
@@ -219,31 +219,52 @@ function seleccionarNivel(nivel){
             break;
 
         case 8:
-            filasEnemigos = 10;
-            columnasEnemigos = 2;
-            crearEnemigos(enemigoImagen7,4,8)
+            filasEnemigos = 14;
+            columnasEnemigos = 1;
+            crearEnemigos(enemigoImagen7,4,20)
             break;
 
 
         case 9:
-            filasEnemigos = 10;
+            filasEnemigos = 12;
             columnasEnemigos = 3;
-            crearEnemigos(enemigoImagen8,3,8)
+            crearEnemigos(enemigoImagen8,3,7)
             columnasEnemigos = 1;
-            crearEnemigos(enemigoImagen7,3,8)
+            crearEnemigos(enemigoImagen7,3,7)
             break;
 
 
         case 10:
-            filasEnemigos = 1;
-            columnasEnemigos = 1;
-            crearEnemigos(enemigoImagen9,3,200)
+
+            crearBoss();
 
 
 
     }
 
 
+
+}
+
+function crearBoss(){
+
+    let enemigo = {
+        imagen: enemigoImagen9,
+        posicionX: pantallaAncho / 2 + 1*75 - 450,
+        posicionY: 50 + 1 * 60 ,
+        ancho: 150 ,
+        alto: 75,
+        vivo: true,
+        velocidadX: 3,
+        velocidadY: 1/4,
+        vida: 200
+
+
+    }
+
+    enemigos.push(enemigo);
+    numeroEnemigos++;
+    
 
 }
 
