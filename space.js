@@ -225,7 +225,7 @@ function seleccionarNivel(nivel){
         case 8:
             filasEnemigos = 10;
             columnasEnemigos = 1;
-            crearEnemigos(enemigoImagen7,4,13)
+            crearEnemigos(enemigoImagen7,4,11)
             break;
 
 
@@ -250,18 +250,18 @@ function seleccionarNivel(nivel){
 
             filasEnemigos = 4
             columnasEnemigos = 3
-            crearEnemigos(enemigoImagen6,3,40)
+            crearEnemigos(enemigoImagen6,2,20)
             break;
 
         case 12:
 
             filasEnemigos = 10
             columnasEnemigos = 4
-            crearEnemigos(enemigoImagen2,3,5)
+            crearEnemigos(enemigoImagen2,3,4)
 
             filasEnemigos = 2
             columnasEnemigos = 2
-            crearEnemigos(enemigoImagen6,1,70)
+            crearEnemigos(enemigoImagen6,1,50)
             break;
 
         case 13:
